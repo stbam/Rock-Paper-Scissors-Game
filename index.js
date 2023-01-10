@@ -1,9 +1,23 @@
+//this program asks you ahead of resolution for your choices.
+//can be improved by having this removed.
+//can also be improved by having tie replaced with a replay until the tie is broken.
+
+var playertext=document.getElementById('player');
+var comptext=document.getElementById('computer');
+var resulttext=document.getElementById('result')
+var buttons=document.getElementById('buttons');
+var computer;
+var player;
+var result;
 
 
 
 
 
-//alert(PlayerSelection);
+
+
+
+
 
 function getComputerChoice(){
     let choice= Math.floor(Math.random()*3)+1;
@@ -26,35 +40,80 @@ function getComputerChoice(){
  
  let compchoice=getComputerChoice();
  
- 
- 
- function round(PlayerSelection, ComputerSelection){
-     
+ function round(PlayerSelection, ComputerSelection){ 
      if(PlayerSelection=='SCISSORS' && ComputerSelection=='PAPER'){
          return "Player Wins!";
      }
      else if (PlayerSelection=='ROCK'&& ComputerSelection=='SCISSORS' ){
+        player_score++; //increment if right
+
          return "Player Wins!";
      }
      else if (PlayerSelection=='Paper'&& ComputerSelection=='ROCK' ){
+        player_score++;
          return "Player Wins!";
      }
      else if(PlayerSelection==ComputerSelection){
          return "Its a tie";//instead of a tie maybe force the function to be called again?
      }
      else{
+        computer_score++;
          return "Player loses! "+ "Computer's choice was: "+ compchoice;
      }
-     
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+buttons.addEventListener('click',function(event) {
+    // Use the event.target property to determine which element was clicked
+    if (event.target.matches('.button1')) {
+        console.log("bob1")
+      // Perform actions for element 1
+    } else if (event.target.matches('.button2')) {
+        console.log("bob2")
+      // Perform actions for element 2
+    } else if (event.target.matches('.button3')) {
+        console.log("bob3")
+      // Perform actions for element 3
+    }
+  });*/
+
+
+/*button1.addEventListener('click',function(){
+
+    console.log(buttons.button1);
+})
+*/
+
+/*
  for(let i=0;i<5;i++){
      let PlayerSelection=(prompt("Choose Rock,Paper,Scissors"));
- PlayerSelection= PlayerSelection.toUpperCase();
+     PlayerSelection= PlayerSelection.toUpperCase();
      compchoice=getComputerChoice();
+
      console.log(round(PlayerSelection,compchoice));
  }
- 
+ */
   
  
  //console.log(round(PlayerSelection,compchoice));
  
+//INNER HTML CHANGIN BUTTONS TO IMGS
+
+
+//rock.innerHTML= 
