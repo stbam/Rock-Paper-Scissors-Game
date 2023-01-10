@@ -5,11 +5,25 @@
 var playertext=document.getElementById('player');
 var comptext=document.getElementById('computer');
 var resulttext=document.getElementById('result')
-var buttons=document.getElementById('buttons');
+var buttons=document.querySelectorAll('.inner-button');
 var computer;
 var player;
 var result;
 
+//!!
+
+buttons.forEach(button=>button.addEventListener("click", () => {
+    player = (button.textContent);
+    computer=getComputerChoice();
+
+    playertext.textContent = `Player: ${player.toUpperCase()}`;
+
+    comptext.textContent = `Computer: ${computer}`;
+
+    //console.log(round(player.toUpperCase(),computer));
+    resulttext.textContent=`Result: ${round(player.toUpperCase(),computer)}`;
+
+}));
 
 
 
@@ -43,22 +57,21 @@ function getComputerChoice(){
  function round(PlayerSelection, ComputerSelection){ 
      if(PlayerSelection=='SCISSORS' && ComputerSelection=='PAPER'){
          return "Player Wins!";
+
      }
      else if (PlayerSelection=='ROCK'&& ComputerSelection=='SCISSORS' ){
-        player_score++; //increment if right
-
          return "Player Wins!";
      }
      else if (PlayerSelection=='Paper'&& ComputerSelection=='ROCK' ){
-        player_score++;
+        
          return "Player Wins!";
      }
      else if(PlayerSelection==ComputerSelection){
          return "Its a tie";//instead of a tie maybe force the function to be called again?
      }
      else{
-        computer_score++;
-         return "Player loses! "+ "Computer's choice was: "+ compchoice;
+        
+         return "Player loses! ";
      }
  }
 
